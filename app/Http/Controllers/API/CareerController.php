@@ -12,16 +12,16 @@ class CareerController extends Controller
     public function index(Request $request)
     {
         // ambil berdasarkan parameter
-        $id_career  = $request->input('id_career');
+        $id  = $request->input('id');
         $position  = $request->input('position');
         $department  = $request->input('department');
 
-        if ($id_career) {
-            $data = Career::where('id_career', $id_career)
+        if ($id) {
+            $data = Career::where('id', $id)
                 ->get();
 
             // mengecek masukan
-            if ($id_career) {
+            if ($id) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
@@ -54,7 +54,7 @@ class CareerController extends Controller
     public function create(CareerRequest $request)
     {
         $data = new Career();
-        $data->id_career = $request->id_career;
+        $data->id = $request->id;
         $data->position = $request->position;
         $data->department = $request->department;
         $data->job_desc = $request->job_desc;
@@ -73,17 +73,14 @@ class CareerController extends Controller
 
     // error ketika panggil fungsi ini
     // karena yang dicari itu kolom id_career, laravel masih stick menggunakan kolom id
-    public function update(CareerRequest $request, $id_career)
+    public function update(CareerRequest $request, $id)
     {
-        $id_career = $request->id_career;
         $position = $request->position;
         $department = $request->department;
         $job_desc = $request->job_desc;
         $req = $request->req;
 
-        $data = Career::find('id_career', $id_career)->firstOrFail();
-        dd($data);
-        $data->id_career = $id_career;
+        $data = Career::findOrFail($id);
         $data->position = $position;
         $data->department = $department;
         $data->job_desc = $job_desc;
@@ -94,6 +91,19 @@ class CareerController extends Controller
         if ($data) {
             // data sengaja dikasih null karena sesudah POST langsung msk DB
             return ResponseFormatter::success($data = null, 'Berhasil update data');
+        } else {
+            return ResponseFormatter::error(null, 'Gagal', 404);
+        }
+    }
+
+    public function delete($id)
+    {
+        $data = Career::findOrFail($id);
+        $data->delete();
+
+        if ($data) {
+            // data sengaja dikasih null karena sesudah POST langsung msk DB
+            return ResponseFormatter::success($data = null, 'Berhasil delete data');
         } else {
             return ResponseFormatter::error(null, 'Gagal', 404);
         }

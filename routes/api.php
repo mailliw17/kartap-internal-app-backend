@@ -23,7 +23,8 @@ Route::get('career', 'API\CareerController@index');
 Route::post('career', 'API\CareerController@create');
 Route::post('aboutus', 'API\AboutUsController@create');
 
-Route::put('/aboutus/{lang}', 'API\AboutUsController@update');
-Route::put('/career/{id_career}', 'API\CareerController@update');
+Route::put('/aboutus/{id}', 'API\AboutUsController@update');
+Route::put('/career/{id}', 'API\CareerController@update');
 
 Route::delete('/aboutus/{id}', 'API\AboutUsController@delete');
+Route::delete('/career/{id}', 'API\CareerController@delete');

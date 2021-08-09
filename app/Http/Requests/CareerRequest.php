@@ -24,7 +24,6 @@ class CareerRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_career' => 'required|unique:career',
             'position' => 'required',
             'department' => 'required',
             'job_desc' => 'required',
