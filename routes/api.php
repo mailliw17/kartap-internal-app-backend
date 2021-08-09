@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('aboutus', 'API\AboutUsController@index');
 Route::get('career', 'API\CareerController@index');
+Route::get('event', 'API\EventController@index');
 
 Route::post('career', 'API\CareerController@create');
 Route::post('aboutus', 'API\AboutUsController@create');
