@@ -24,10 +24,16 @@ class CareerRequest extends FormRequest
     public function rules()
     {
         return [
+            'idDepartment' => 'required|integer',
+            'requestNumber' => 'required|integer',
             'position' => 'required',
-            'department' => 'required',
-            'job_desc' => 'required',
-            'req' => 'required'
+            'jobDescription' => 'required',
+            'requirement' => 'required',
+            'description' => 'required',
+            'applyUrl' => 'required',
+            'vacancies' => 'required|integer',
+            'period' => 'required|integer',
+            'status' => 'required|integer'
         ];
     }
 }

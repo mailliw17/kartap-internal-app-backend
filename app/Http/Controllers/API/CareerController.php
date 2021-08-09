@@ -55,10 +55,16 @@ class CareerController extends Controller
     {
         $data = new Career();
         $data->id = $request->id;
+        $data->idDepartment = $request->idDepartment;
+        $data->requestNumber = $request->requestNumber;
         $data->position = $request->position;
-        $data->department = $request->department;
-        $data->job_desc = $request->job_desc;
-        $data->req = $request->req;
+        $data->jobDescription = $request->jobDescription;
+        $data->requirement = $request->requirement;
+        $data->description = $request->description;
+        $data->applyUrl = $request->applyUrl;
+        $data->vacancies = $request->vacancies;
+        $data->period = $request->period;
+        $data->status = $request->status;
 
         $data->save();
 
@@ -75,16 +81,29 @@ class CareerController extends Controller
     // karena yang dicari itu kolom id_career, laravel masih stick menggunakan kolom id
     public function update(CareerRequest $request, $id)
     {
+        $idDepartment = $request->idDepartment;
+        $requestNumber = $request->requestNumber;
         $position = $request->position;
-        $department = $request->department;
-        $job_desc = $request->job_desc;
-        $req = $request->req;
+        $jobDescription = $request->jobDescription;
+        $requirement = $request->requirement;
+        $description = $request->description;
+        $applyUrl = $request->applyUrl;
+        $vacancies = $request->vacancies;
+        $period = $request->period;
+        $status = $request->status;
 
         $data = Career::findOrFail($id);
+
+        $data->idDepartment = $idDepartment;
+        $data->requestNumber = $requestNumber;
         $data->position = $position;
-        $data->department = $department;
-        $data->job_desc = $job_desc;
-        $data->req = $req;
+        $data->jobDescription = $jobDescription;
+        $data->requirement = $requirement;
+        $data->description = $description;
+        $data->applyUrl = $applyUrl;
+        $data->vacancies = $vacancies;
+        $data->period = $period;
+        $data->status = $status;
 
         $data->save();
 

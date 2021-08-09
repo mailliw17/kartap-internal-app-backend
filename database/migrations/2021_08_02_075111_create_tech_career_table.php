@@ -13,12 +13,18 @@ class CreateTechCareerTable extends Migration
      */
     public function up()
     {
-        Schema::create('tech_career', function (Blueprint $table) {
-            $table->string('id_career')->primary();
+        Schema::create('career', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->integer('idDepartment');
+            $table->string('requestNumber');
             $table->string('position');
-            $table->string('department');
-            $table->text('job_desc');
-            $table->text('req');
+            $table->text('jobDescription');
+            $table->text('requirement');
+            $table->text('description');
+            $table->string('applyUrl');
+            $table->integer('vacancies');
+            $table->integer('period');
+            $table->integer('status');
             $table->timestamps();
         });
     }

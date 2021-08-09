@@ -10,8 +10,19 @@ class Career extends Model
     protected $table = 'career';
 
     protected $fillable = [
-        'id', 'position', 'department', 'job_desc', 'req'
+        'idDepartment',
+        'requestNumber',
+        'position',
+        'jobDescription',
+        'requirement',
+        'description',
+        'applyUrl',
+        'vacancies',
+        'period',
+        'status'
     ];
+
+
 
     protected $hidden = [];
 }

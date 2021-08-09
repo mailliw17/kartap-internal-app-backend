@@ -13,7 +13,7 @@ class CreateTechAboutUsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tech_about_us', function (Blueprint $table) {
+        Schema::create('about_us', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('our_history');
             $table->text('our_mission');
