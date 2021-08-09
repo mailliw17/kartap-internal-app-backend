@@ -3,7 +3,7 @@ API Status
 Do : Masih banyak hehe
 
 
-Doing : Career (perbaikan ngikutin ERD terbaru kak chika)
+Doing : Event
 
 
-Done : AboutUs
+Done : AboutUs, Career
