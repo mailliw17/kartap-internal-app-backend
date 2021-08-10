@@ -10,6 +10,7 @@ class Career extends Model
     protected $table = 'career';
 
     protected $fillable = [
+        'id',
         'idDepartment',
         'requestNumber',
         'position',

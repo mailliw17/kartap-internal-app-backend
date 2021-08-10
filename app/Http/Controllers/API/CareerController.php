@@ -54,7 +54,6 @@ class CareerController extends Controller
     public function create(CareerRequest $request)
     {
         $data = new Career();
-        $data->id = $request->id;
         $data->idDepartment = $request->idDepartment;
         $data->requestNumber = $request->requestNumber;
         $data->position = $request->position;

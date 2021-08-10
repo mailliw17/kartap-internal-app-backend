@@ -23,9 +23,12 @@ Route::get('event', 'API\EventController@index');
 
 Route::post('career', 'API\CareerController@create');
 Route::post('aboutus', 'API\AboutUsController@create');
+Route::post('event', 'API\EventController@create');
 
 Route::put('/aboutus/{id}', 'API\AboutUsController@update');
 Route::put('/career/{id}', 'API\CareerController@update');
+Route::put('/event/{id}', 'API\EventController@update');
 
 Route::delete('/aboutus/{id}', 'API\AboutUsController@delete');
 Route::delete('/career/{id}', 'API\CareerController@delete');
+Route::delete('/event/{id}', 'API\EventController@delete');

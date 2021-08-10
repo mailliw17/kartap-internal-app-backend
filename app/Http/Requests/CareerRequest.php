@@ -25,7 +25,7 @@ class CareerRequest extends FormRequest
     {
         return [
             'idDepartment' => 'required|integer',
-            'requestNumber' => 'required|integer',
+            'requestNumber' => 'required',
             'position' => 'required',
             'jobDescription' => 'required',
             'requirement' => 'required',

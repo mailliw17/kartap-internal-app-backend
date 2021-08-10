@@ -4,13 +4,14 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AboutUs extends Model
+class Role extends Model
 {
     // nama table di SQL
-    protected $table = 'about_us';
+    protected $table = 'role';
 
     protected $fillable = [
-        'id', 'our_history', 'our_mission', 'our_vision', 'lang'
+        'id',
+        'idDepartment',
     ];
 
     protected $hidden = [];

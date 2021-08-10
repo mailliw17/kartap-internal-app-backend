@@ -14,7 +14,7 @@ class CreateTechCareerTable extends Migration
     public function up()
     {
         Schema::create('career', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->bigIncrements('id');
             $table->integer('idDepartment');
             $table->string('requestNumber');
             $table->string('position');

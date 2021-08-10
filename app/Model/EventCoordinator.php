@@ -4,13 +4,14 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AboutUs extends Model
+class EventCoordinator extends Model
 {
     // nama table di SQL
-    protected $table = 'about_us';
+    protected $table = 'event_coordinator';
 
     protected $fillable = [
-        'id', 'our_history', 'our_mission', 'our_vision', 'lang'
+        'idEvent',
+        'idUser',
     ];
 
     protected $hidden = [];
