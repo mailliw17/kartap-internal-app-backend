@@ -16,6 +16,7 @@ class CreateEventCoordinatorTable extends Migration
         Schema::create('event_coordinator', function (Blueprint $table) {
             $table->integer('idEvent');
             $table->integer('idUser');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

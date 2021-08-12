@@ -16,6 +16,7 @@ class CreateEventPartnerTable extends Migration
         Schema::create('event_partner', function (Blueprint $table) {
             $table->integer('idEvent');
             $table->integer('idPartner');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

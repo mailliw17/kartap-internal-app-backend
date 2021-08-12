@@ -5,20 +5,15 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Event extends Model
+class ContactUs extends Model
 {
     use SoftDeletes;
+
     // nama table di SQL
-    protected $table = 'event';
+    protected $table = 'contact_us';
 
     protected $fillable = [
-        'id',
-        'title',
-        'subTitle',
-        'description',
-        'registrationUrl',
-        'status',
-        'image',
+        'id', 'name', 'phone', 'email', 'description'
     ];
 
     protected $hidden = [];

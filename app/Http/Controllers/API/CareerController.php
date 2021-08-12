@@ -17,18 +17,15 @@ class CareerController extends Controller
         $department  = $request->input('department');
 
         if ($id) {
-            $data = Career::where('id', $id)
-                ->get();
+            $data = Career::findOrFail($id);
 
             // mengecek masukan
-            if ($id) {
+            if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
-        }
-
-        if ($position) {
+        } else if ($position) {
             $data = Career::where('position', 'like', '%' . $position . '%')
                 ->get();
 
@@ -37,13 +34,11 @@ class CareerController extends Controller
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
-        }
+        } else {
+            $data = Career::all();
 
-        if ($department) {
-            $data = Career::where('department', $department)
-                ->get();
-
-            if ($department) {
+            // mengecek masukan
+            if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);

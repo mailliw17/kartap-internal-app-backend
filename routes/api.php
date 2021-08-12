@@ -20,10 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('aboutus', 'API\AboutUsController@index');
 Route::get('career', 'API\CareerController@index');
 Route::get('event', 'API\EventController@index');
+Route::get('contactus', 'API\ContactUsController@index');
 
 Route::post('career', 'API\CareerController@create');
 Route::post('aboutus', 'API\AboutUsController@create');
 Route::post('event', 'API\EventController@create');
+Route::post('contactus', 'API\ContactUsController@create');
 
 Route::put('/aboutus/{id}', 'API\AboutUsController@update');
 Route::put('/career/{id}', 'API\CareerController@update');

@@ -24,13 +24,20 @@ class EventController extends Controller
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
-        }
-
-        if ($title) {
+        } else if ($title) {
             $data = Event::where('title', 'like', '%' . $title . '%')
                 ->get();
 
             if ($title) {
+                return ResponseFormatter::success($data, 'Berhasil');
+            } else {
+                return ResponseFormatter::error(null, 'Gagal', 404);
+            }
+        } else {
+            $data = Event::all();
+
+            // mengecek masukan
+            if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);

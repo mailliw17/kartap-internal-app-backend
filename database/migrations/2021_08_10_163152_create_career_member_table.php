@@ -21,6 +21,7 @@ class CreateCareerMemberTable extends Migration
             $table->binary('cv/resume');
             $table->string('linkedin');
             $table->string('socialMedia');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

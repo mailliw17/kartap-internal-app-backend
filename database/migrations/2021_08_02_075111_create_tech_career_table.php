@@ -25,6 +25,7 @@ class CreateTechCareerTable extends Migration
             $table->integer('vacancies');
             $table->integer('period');
             $table->integer('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

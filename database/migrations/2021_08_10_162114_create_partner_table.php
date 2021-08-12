@@ -20,6 +20,7 @@ class CreatePartnerTable extends Migration
             $table->date('startDate');
             $table->date('endDate');
             $table->integer('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -20,6 +20,7 @@ class CreateTestimonyTable extends Migration
             $table->text('testimony');
             $table->text('feedback');
             $table->integer('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

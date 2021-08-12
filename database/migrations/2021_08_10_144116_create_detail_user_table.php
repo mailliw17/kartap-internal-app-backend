@@ -24,6 +24,7 @@ class CreateDetailUserTable extends Migration
             $table->string('linkedin');
             $table->string('position');
             $table->integer('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

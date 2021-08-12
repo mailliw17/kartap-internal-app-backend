@@ -21,6 +21,7 @@ class CreateEventTable extends Migration
             $table->string('registrationUrl');
             $table->integer('status');
             $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

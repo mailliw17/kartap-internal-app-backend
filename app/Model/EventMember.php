@@ -3,9 +3,11 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class EventMember extends Model
 {
+    use SoftDeletes;
     // nama table di SQL
     protected $table = 'event_member';
 

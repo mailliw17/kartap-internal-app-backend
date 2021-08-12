@@ -20,6 +20,7 @@ class CreateEventMemberTable extends Migration
             $table->string('email');
             $table->text('address');
             $table->text('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

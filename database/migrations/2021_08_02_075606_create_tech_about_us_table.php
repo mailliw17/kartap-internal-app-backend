@@ -19,6 +19,7 @@ class CreateTechAboutUsTable extends Migration
             $table->text('our_mission');
             $table->text('our_vision');
             $table->string('lang', 2)->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -3,9 +3,12 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AboutUs extends Model
 {
+    use SoftDeletes;
+
     // nama table di SQL
     protected $table = 'about_us';
 
