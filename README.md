@@ -1,9 +1,1 @@
-API Status 
-
-Do : Masih banyak hehe
-
-
-Doing : Event
-
-
-Done : AboutUs, Career
+API Status -> directly check postman team
