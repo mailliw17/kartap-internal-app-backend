@@ -70,17 +70,16 @@ class AboutUsController extends Controller
         $our_vision = $request->our_vision;
         $lang = $request->lang;
 
-        $data = AboutUs::findOrFail($id);
+        $data = AboutUs::find($id);
 
-        $data->our_history = $our_history;
-        $data->our_mission = $our_mission;
-        $data->our_vision = $our_vision;
-        $data->lang = $lang;
-
-        $data->save();
 
         if ($data) {
-            // data sengaja dikasih null karena sesudah POST langsung msk DB
+            $data->our_history = $our_history;
+            $data->our_mission = $our_mission;
+            $data->our_vision = $our_vision;
+            $data->lang = $lang;
+
+            $data->save();
             return ResponseFormatter::success($data = null, 'Berhasil update data');
         } else {
             return ResponseFormatter::error(null, 'Gagal', 404);
@@ -89,11 +88,11 @@ class AboutUsController extends Controller
 
     public function delete($id)
     {
-        $data = AboutUs::findOrFail($id);
-        $data->delete();
+        $data = AboutUs::find($id);
+
 
         if ($data) {
-            // data sengaja dikasih null karena sesudah POST langsung msk DB
+            $data->delete();
             return ResponseFormatter::success($data = null, 'Berhasil delete data');
         } else {
             return ResponseFormatter::error(null, 'Gagal', 404);

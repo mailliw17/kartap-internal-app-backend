@@ -18,9 +18,10 @@ class CreateCareerMemberTable extends Migration
             $table->integer('idCareer');
             $table->string('name');
             $table->string('email');
-            $table->binary('cv/resume');
+            $table->string('cv_or_resume');
             $table->string('linkedin');
             $table->string('socialMedia');
+            $table->integer('status');
             $table->softDeletes();
             $table->timestamps();
         });

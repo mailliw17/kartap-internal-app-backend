@@ -18,7 +18,7 @@ class CreatePartnerTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->date('startDate');
-            $table->date('endDate');
+            $table->date('endDate')->nullable();
             $table->integer('status');
             $table->softDeletes();
             $table->timestamps();

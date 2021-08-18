@@ -3,40 +3,28 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CareerMemberRequest;
+use App\Model\CareerMember;
 use Illuminate\Http\Request;
-use App\Model\Event;
-use App\Http\Requests\EventRequest;
 
-class EventController extends Controller
+class CareerMemberController extends Controller
 {
     public function index(Request $request)
     {
         // ambil berdasarkan parameter
         $id  = $request->input('id');
-        $title  = $request->input('title');
 
         if ($id) {
-            $data = Event::find($id);
+            $data = CareerMember::find($id);
 
-            // mengecek masukan
-            if ($id) {
-                return ResponseFormatter::success($data, 'Berhasil');
-            } else {
-                return ResponseFormatter::error(null, 'Gagal', 404);
-            }
-        } else if ($title) {
-            $data = Event::where('title', 'like', '%' . $title . '%')
-                ->get();
-
-            if ($title) {
+            if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
         } else {
-            $data = Event::all();
+            $data = CareerMember::all();
 
-            // mengecek masukan
             if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
@@ -45,16 +33,16 @@ class EventController extends Controller
         }
     }
 
-    public function create(EventRequest $request)
+    public function create(CareerMemberRequest $request)
     {
-        $data = new Event();
-        $data->title = $request->title;
-        $data->subTitle = $request->subTitle;
-        $data->description = $request->description;
-        $data->registrationUrl = $request->registrationUrl;
+        $data = new CareerMember();
+        $data->idCareer = $request->idCareer;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->cv_or_resume = $request->cv_or_resume;
+        $data->linkedin = $request->linkedin;
+        $data->socialMedia = $request->socialMedia;
         $data->status = $request->status;
-        $data->image = $request->image;
-
         $data->save();
 
         if ($data) {
@@ -65,28 +53,29 @@ class EventController extends Controller
         }
     }
 
-    public function update(EventRequest $request, $id)
+    public function update(CareerMemberRequest $request, $id)
     {
-        $title = $request->title;
-        $subTitle = $request->subTitle;
-        $description = $request->description;
-        $registrationUrl = $request->registrationUrl;
+        $idCareer = $request->idCareer;
+        $name = $request->name;
+        $email = $request->email;
+        $cv_or_resume = $request->cv_or_resume;
+        $linkedin = $request->linkedin;
+        $socialMedia = $request->socialMedia;
         $status = $request->status;
-        $image = $request->image;
 
-        $data = Event::find($id);
+        $data = CareerMember::find($id);
 
 
         if ($data) {
-            $data->title = $title;
-            $data->subTitle = $subTitle;
-            $data->description = $description;
-            $data->registrationUrl = $registrationUrl;
+            $data->idCareer = $idCareer;
+            $data->name = $name;
+            $data->email = $email;
+            $data->cv_or_resume = $cv_or_resume;
+            $data->linkedin = $linkedin;
+            $data->socialMedia = $socialMedia;
             $data->status = $status;
-            $data->image = $image;
 
             $data->save();
-
             return ResponseFormatter::success($data = null, 'Berhasil update data');
         } else {
             return ResponseFormatter::error(null, 'Gagal', 404);
@@ -95,11 +84,12 @@ class EventController extends Controller
 
     public function delete($id)
     {
-        $data = Event::find($id);
+        $data = CareerMember::find($id);
 
 
         if ($data) {
             $data->delete();
+
             return ResponseFormatter::success($data = null, 'Berhasil delete data');
         } else {
             return ResponseFormatter::error(null, 'Gagal', 404);

@@ -3,40 +3,27 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TestimonyRequest;
+use App\Model\Testimony;
 use Illuminate\Http\Request;
-use App\Model\Event;
-use App\Http\Requests\EventRequest;
 
-class EventController extends Controller
+class TestimonyController extends Controller
 {
     public function index(Request $request)
     {
         // ambil berdasarkan parameter
         $id  = $request->input('id');
-        $title  = $request->input('title');
 
         if ($id) {
-            $data = Event::find($id);
-
-            // mengecek masukan
-            if ($id) {
-                return ResponseFormatter::success($data, 'Berhasil');
-            } else {
-                return ResponseFormatter::error(null, 'Gagal', 404);
-            }
-        } else if ($title) {
-            $data = Event::where('title', 'like', '%' . $title . '%')
-                ->get();
-
-            if ($title) {
+            $data = Testimony::find($id);
+            if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
         } else {
-            $data = Event::all();
+            $data = Testimony::all();
 
-            // mengecek masukan
             if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
@@ -45,16 +32,14 @@ class EventController extends Controller
         }
     }
 
-    public function create(EventRequest $request)
+    public function create(TestimonyRequest $request)
     {
-        $data = new Event();
-        $data->title = $request->title;
-        $data->subTitle = $request->subTitle;
-        $data->description = $request->description;
-        $data->registrationUrl = $request->registrationUrl;
+        $data = new Testimony();
+        $data->idEventMember = $request->idEventMember;
+        $data->idEvent = $request->idEvent;
+        $data->testimony = $request->testimony;
+        $data->feedback = $request->feedback;
         $data->status = $request->status;
-        $data->image = $request->image;
-
         $data->save();
 
         if ($data) {
@@ -65,28 +50,25 @@ class EventController extends Controller
         }
     }
 
-    public function update(EventRequest $request, $id)
+    public function update(TestimonyRequest $request, $id)
     {
-        $title = $request->title;
-        $subTitle = $request->subTitle;
-        $description = $request->description;
-        $registrationUrl = $request->registrationUrl;
+        $idEventMember = $request->idEventMember;
+        $idEvent = $request->idEvent;
+        $testimony = $request->testimony;
+        $feedback = $request->feedback;
         $status = $request->status;
-        $image = $request->image;
 
-        $data = Event::find($id);
-
+        $data = Testimony::find($id);
 
         if ($data) {
-            $data->title = $title;
-            $data->subTitle = $subTitle;
-            $data->description = $description;
-            $data->registrationUrl = $registrationUrl;
+            // kalau ada data baru eksekusi
+            $data->idEventMember = $idEventMember;
+            $data->idEvent = $idEvent;
+            $data->testimony = $testimony;
+            $data->feedback = $feedback;
             $data->status = $status;
-            $data->image = $image;
 
             $data->save();
-
             return ResponseFormatter::success($data = null, 'Berhasil update data');
         } else {
             return ResponseFormatter::error(null, 'Gagal', 404);
@@ -95,7 +77,7 @@ class EventController extends Controller
 
     public function delete($id)
     {
-        $data = Event::find($id);
+        $data = Testimony::find($id);
 
 
         if ($data) {

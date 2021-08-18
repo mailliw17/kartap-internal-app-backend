@@ -16,9 +16,10 @@ class CareerMember extends Model
         'idCareer',
         'name',
         'email',
-        'cv/resume',
+        'cv_or_resume',
         'linkedin',
-        'socialMedia'
+        'socialMedia',
+        'status'
     ];
 
     protected $hidden = [];
