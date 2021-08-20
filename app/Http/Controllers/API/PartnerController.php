@@ -58,4 +58,41 @@ class PartnerController extends Controller
             return ResponseFormatter::error(null, 'Gagal', 404);
         }
     }
+
+    public function update(PartnerRequest $request, $id)
+    {
+        $name = $request->name;
+        $description = $request->description;
+        $startDate = $request->startDate;
+        $endDate = $request->endDate;
+        $status = $request->status;
+
+        $data = Partner::find($id);
+
+        if ($data) {
+            $data->name = $name;
+            $data->description = $description;
+            $data->startDate = $startDate;
+            $data->endDate = $endDate;
+            $data->status = $status;
+
+            $data->save();
+
+            return ResponseFormatter::success($data = null, 'Berhasil update data');
+        } else {
+            return ResponseFormatter::error(null, 'Gagal', 404);
+        }
+    }
+
+    public function delete($id)
+    {
+        $data = Partner::find($id);
+
+        if ($data) {
+            $data->delete();
+            return ResponseFormatter::success($data = null, 'Berhasil delete data');
+        } else {
+            return ResponseFormatter::error(null, 'Gagal', 404);
+        }
+    }
 }

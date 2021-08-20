@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EventMemberRequest;
+use App\Model\EventMember;
 use Illuminate\Http\Request;
-use App\Model\Event;
-use App\Http\Requests\EventRequest;
 
-class EventController extends Controller
+class EventMemberController extends Controller
 {
     public function index(Request $request)
     {
         // ambil berdasarkan parameter
         $id  = $request->input('id');
-        $title  = $request->input('title');
+        $name  = $request->input('name');
 
         if ($id) {
-            $data = Event::find($id);
+            $data = EventMember::find($id);
 
             // mengecek masukan
             if ($data) {
@@ -24,17 +24,17 @@ class EventController extends Controller
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
-        } else if ($title) {
-            $data = Event::where('title', 'like', '%' . $title . '%')
+        } else if ($name) {
+            $data = EventMember::where('name', 'like', '%' . $name . '%')
                 ->get();
 
-            if ($title) {
+            if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
         } else {
-            $data = Event::all();
+            $data = EventMember::all();
 
             // mengecek masukan
             if ($data) {
@@ -45,15 +45,14 @@ class EventController extends Controller
         }
     }
 
-    public function create(EventRequest $request)
+    public function create(EventMemberRequest $request)
     {
-        $data = new Event();
-        $data->title = $request->title;
-        $data->subTitle = $request->subTitle;
+        $data = new EventMember();
+        $data->name = $request->name;
+        $data->phone = $request->phone;
+        $data->email = $request->email;
+        $data->address = $request->address;
         $data->description = $request->description;
-        $data->registrationUrl = $request->registrationUrl;
-        $data->status = $request->status;
-        $data->image = $request->image;
 
         $data->save();
 
@@ -65,25 +64,22 @@ class EventController extends Controller
         }
     }
 
-    public function update(EventRequest $request, $id)
+    public function update(EventMemberRequest $request, $id)
     {
-        $title = $request->title;
-        $subTitle = $request->subTitle;
+        $name = $request->name;
+        $phone = $request->phone;
+        $email = $request->email;
+        $address = $request->address;
         $description = $request->description;
-        $registrationUrl = $request->registrationUrl;
-        $status = $request->status;
-        $image = $request->image;
 
-        $data = Event::find($id);
-
+        $data = EventMember::find($id);
 
         if ($data) {
-            $data->title = $title;
-            $data->subTitle = $subTitle;
+            $data->name = $name;
+            $data->phone = $phone;
+            $data->email = $email;
+            $data->address = $address;
             $data->description = $description;
-            $data->registrationUrl = $registrationUrl;
-            $data->status = $status;
-            $data->image = $image;
 
             $data->save();
 
@@ -95,8 +91,7 @@ class EventController extends Controller
 
     public function delete($id)
     {
-        $data = Event::find($id);
-
+        $data = EventMember::find($id);
 
         if ($data) {
             $data->delete();
