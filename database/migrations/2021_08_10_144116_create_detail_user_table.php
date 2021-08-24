@@ -20,8 +20,8 @@ class CreateDetailUserTable extends Migration
             $table->string('name');
             $table->text('address');
             $table->date('dateOfBirth');
-            $table->binary('photo');
-            $table->string('linkedin');
+            $table->string('photo')->nullable();
+            $table->string('linkedin')->nullable();
             $table->string('position');
             $table->integer('status');
             $table->softDeletes();

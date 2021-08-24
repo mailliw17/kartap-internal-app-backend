@@ -5,7 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class RegistedEvent extends Model
+class RegisteredEvent extends Model
 {
     use SoftDeletes;
     // nama table di SQL

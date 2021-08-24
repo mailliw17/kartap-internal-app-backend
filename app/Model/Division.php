@@ -13,6 +13,7 @@ class Division extends Model
 
     protected $fillable = [
         'id',
+        'name',
         'idDepartment'
     ];
 
