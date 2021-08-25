@@ -14,10 +14,20 @@ class CreateEventPartnerTable extends Migration
     public function up()
     {
         Schema::create('event_partner', function (Blueprint $table) {
-            $table->integer('idEvent');
-            $table->integer('idPartner');
+            $table->bigInteger('event_id')->unsigned();
+            $table->bigInteger('partner_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('event_id')
+                ->references('id')
+                ->on('event')
+                ->onCascade('delete');
+
+            $table->foreign('partner_id')
+                ->references('id')
+                ->on('partner')
+                ->onCascade('delete');
         });
     }
 

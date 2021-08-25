@@ -44,7 +44,6 @@ class DivisionController extends Controller
     {
         $data = new Division();
         $data->name = $request->name;
-        $data->idDepartment = $request->idDepartment;
         $data->save();
 
         if ($data) {
@@ -58,14 +57,12 @@ class DivisionController extends Controller
     public function update(DivisionRequest $request, $id)
     {
         $name = $request->name;
-        $idDepartment = $request->idDepartment;
 
         $data = Division::find($id);
 
         if ($data) {
             // kalau ada data baru eksekusi
             $data->name = $name;
-            $data->idDepartment = $idDepartment;
 
             $data->save();
             return ResponseFormatter::success($data = null, 'Berhasil update data');

@@ -21,4 +21,9 @@ class EventMember extends Model
     ];
 
     protected $hidden = [];
+
+    public function registeredevent()
+    {
+        return $this->hasMany('App\Model\RegisteredEvent');
+    }
 }

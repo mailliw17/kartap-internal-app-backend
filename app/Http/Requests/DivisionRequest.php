@@ -24,8 +24,7 @@ class DivisionRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:division',
-            'idDepartment' => 'required|integer'
+            'name' => 'required|unique:division'
         ];
     }
 }

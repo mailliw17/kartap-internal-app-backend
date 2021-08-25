@@ -12,9 +12,19 @@ class EventCoordinator extends Model
     protected $table = 'event_coordinator';
 
     protected $fillable = [
-        'idEvent',
-        'idUser',
+        'event_id',
+        'user_id',
     ];
 
     protected $hidden = [];
+
+    public function auth()
+    {
+        return $this->belongsTo('App\Model\Auth');
+    }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Model\Event');
+    }
 }

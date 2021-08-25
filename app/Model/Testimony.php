@@ -14,11 +14,16 @@ class Testimony extends Model
     protected $fillable = [
         'id',
         'idEventMember',
-        'idEvent',
+        'event_id',
         'testimony',
         'feedback',
         'status'
     ];
 
     protected $hidden = [];
+
+    public function event()
+    {
+        return $this->belongsTo('App\Model\Event');
+    }
 }

@@ -44,6 +44,7 @@ class DepartmentController extends Controller
     {
         $data = new Department();
         $data->name = $request->name;
+        $data->division_id = $request->division_id;
         $data->save();
 
         if ($data) {
@@ -57,6 +58,7 @@ class DepartmentController extends Controller
     public function update(DepartmentRequest $request, $id)
     {
         $name = $request->name;
+        $division_id = $request->division_id;
 
         $data = Department::find($id);
 

@@ -29,7 +29,7 @@ class AuthRequest extends FormRequest
             'email' => 'required|email|unique:users',
             'phone' => 'required',
             'password' => 'required',
-            'idRole' => 'required|integer',
+            'role_id' => 'required|integer',
         ];
     }
 }

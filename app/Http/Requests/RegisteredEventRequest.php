@@ -24,8 +24,8 @@ class RegisteredEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'idEvent' => 'required|integer',
-            'idEventMember' => 'required|integer',
+            'event_id' => 'required|integer',
+            'event_member_id' => 'required|integer',
             'dateRegistered' => 'required|date'
         ];
     }

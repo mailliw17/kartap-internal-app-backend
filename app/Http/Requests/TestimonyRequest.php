@@ -25,7 +25,7 @@ class TestimonyRequest extends FormRequest
     {
         return [
             'idEventMember' => 'required|integer',
-            'idEvent'  => 'required|integer',
+            'event_id'  => 'required|integer',
             'testimony' => 'required',
             'feedback' => 'required',
             'status' => 'required|integer'

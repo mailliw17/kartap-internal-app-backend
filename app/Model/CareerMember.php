@@ -13,7 +13,7 @@ class CareerMember extends Model
 
     protected $fillable = [
         'id',
-        'idCareer',
+        'career_id',
         'name',
         'email',
         'cv_or_resume',
@@ -23,4 +23,9 @@ class CareerMember extends Model
     ];
 
     protected $hidden = [];
+
+    public function career()
+    {
+        return $this->belongsTo('App\Model\Career');
+    }
 }

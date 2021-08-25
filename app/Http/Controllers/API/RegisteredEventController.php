@@ -12,18 +12,18 @@ class RegisteredEventController extends Controller
     public function index(Request $request)
     {
         // ambil berdasarkan parameter
-        $idEvent  = $request->input('idEvent');
-        $idEventMember  = $request->input('idEventMember');
+        $event_id  = $request->input('event_id');
+        $event_member_id  = $request->input('event_member_id');
 
-        if ($idEvent) {
-            $data = RegisteredEvent::where('idEvent', $idEvent)->get();
+        if ($event_id) {
+            $data = RegisteredEvent::where('event_id', $event_id)->get();
             if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
-        } else if ($idEventMember) {
-            $data = RegisteredEvent::where('idEventMember', $idEventMember)->get();
+        } else if ($event_member_id) {
+            $data = RegisteredEvent::where('event_member_id', $event_member_id)->get();
             if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
@@ -43,8 +43,8 @@ class RegisteredEventController extends Controller
     public function create(RegisteredEventRequest $request)
     {
         $data = new RegisteredEvent();
-        $data->idEvent = $request->idEvent;
-        $data->idEventMember = $request->idEventMember;
+        $data->event_id = $request->event_id;
+        $data->event_member_id = $request->event_member_id;
         $data->dateRegistered = $request->dateRegistered;
         $data->save();
 

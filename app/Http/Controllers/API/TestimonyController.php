@@ -36,7 +36,7 @@ class TestimonyController extends Controller
     {
         $data = new Testimony();
         $data->idEventMember = $request->idEventMember;
-        $data->idEvent = $request->idEvent;
+        $data->event_id = $request->event_id;
         $data->testimony = $request->testimony;
         $data->feedback = $request->feedback;
         $data->status = $request->status;
@@ -53,7 +53,7 @@ class TestimonyController extends Controller
     public function update(TestimonyRequest $request, $id)
     {
         $idEventMember = $request->idEventMember;
-        $idEvent = $request->idEvent;
+        $event_id = $request->event_id;
         $testimony = $request->testimony;
         $feedback = $request->feedback;
         $status = $request->status;
@@ -63,7 +63,7 @@ class TestimonyController extends Controller
         if ($data) {
             // kalau ada data baru eksekusi
             $data->idEventMember = $idEventMember;
-            $data->idEvent = $idEvent;
+            $data->event_id = $event_id;
             $data->testimony = $testimony;
             $data->feedback = $feedback;
             $data->status = $status;

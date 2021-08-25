@@ -24,8 +24,8 @@ class EventCoordinatorRequest extends FormRequest
     public function rules()
     {
         return [
-            'idEvent' => 'required|string',
-            'idUser' => 'required|string'
+            'event_id' => 'required|string',
+            'user_id' => 'required|string'
         ];
     }
 }

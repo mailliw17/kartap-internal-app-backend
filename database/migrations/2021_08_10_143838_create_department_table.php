@@ -16,8 +16,13 @@ class CreateDepartmentTable extends Migration
         Schema::create('department', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->bigInteger('division_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
+            $table->foreign('division_id')
+                ->references('id')
+                ->on('division')
+                ->onCascade('delete');
         });
     }
 

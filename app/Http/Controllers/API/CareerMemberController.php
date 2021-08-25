@@ -36,7 +36,7 @@ class CareerMemberController extends Controller
     public function create(CareerMemberRequest $request)
     {
         $data = new CareerMember();
-        $data->idCareer = $request->idCareer;
+        $data->career_id = $request->career_id;
         $data->name = $request->name;
         $data->email = $request->email;
         $data->cv_or_resume = $request->cv_or_resume;
@@ -55,7 +55,7 @@ class CareerMemberController extends Controller
 
     public function update(CareerMemberRequest $request, $id)
     {
-        $idCareer = $request->idCareer;
+        $career_id = $request->career_id;
         $name = $request->name;
         $email = $request->email;
         $cv_or_resume = $request->cv_or_resume;
@@ -67,7 +67,7 @@ class CareerMemberController extends Controller
 
 
         if ($data) {
-            $data->idCareer = $idCareer;
+            $data->career_id = $career_id;
             $data->name = $name;
             $data->email = $email;
             $data->cv_or_resume = $cv_or_resume;

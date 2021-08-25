@@ -15,7 +15,7 @@ class CreateCareerMemberTable extends Migration
     {
         Schema::create('career_member', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idCareer');
+            $table->bigInteger('career_id')->unsigned();
             $table->string('name');
             $table->string('email');
             $table->string('cv_or_resume');
@@ -24,6 +24,10 @@ class CreateCareerMemberTable extends Migration
             $table->integer('status');
             $table->softDeletes();
             $table->timestamps();
+            $table->foreign('career_id')
+                ->references('id')
+                ->on('career')
+                ->onCascade('delete');
         });
     }
 

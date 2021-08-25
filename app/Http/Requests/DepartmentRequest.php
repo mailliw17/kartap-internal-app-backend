@@ -24,7 +24,8 @@ class DepartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:department'
+            'name' => 'required|unique:department',
+            'division_id' => 'required|integer'
         ];
     }
 }

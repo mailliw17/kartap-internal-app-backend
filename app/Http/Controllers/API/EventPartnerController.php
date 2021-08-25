@@ -12,18 +12,18 @@ class EventPartnerController extends Controller
     public function index(Request $request)
     {
         // ambil berdasarkan parameter
-        $idEvent  = $request->input('idEvent');
-        $idPartner  = $request->input('idPartner');
+        $event_id  = $request->input('event_id');
+        $partner_id  = $request->input('partner_id');
 
-        if ($idEvent) {
-            $data = EventPartner::where('idEvent', $idEvent)->get();
+        if ($event_id) {
+            $data = EventPartner::where('event_id', $event_id)->get();
             if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
-        } else if ($idPartner) {
-            $data = EventPartner::where('idPartner', $idPartner)->get();
+        } else if ($partner_id) {
+            $data = EventPartner::where('partner_id', $partner_id)->get();
             if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
@@ -43,8 +43,8 @@ class EventPartnerController extends Controller
     public function create(EventPartnerRequest $request)
     {
         $data = new EventPartner();
-        $data->idEvent = $request->idEvent;
-        $data->idPartner = $request->idPartner;
+        $data->event_id = $request->event_id;
+        $data->partner_id = $request->partner_id;
         $data->save();
 
         if ($data) {

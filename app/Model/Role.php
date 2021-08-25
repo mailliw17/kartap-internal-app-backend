@@ -18,4 +18,9 @@ class Role extends Model
     ];
 
     protected $hidden = [];
+
+    public function users()
+    {
+        return $this->hasMany('App\Model\Auth');
+    }
 }

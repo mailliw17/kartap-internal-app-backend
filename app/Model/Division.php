@@ -13,9 +13,13 @@ class Division extends Model
 
     protected $fillable = [
         'id',
-        'name',
-        'idDepartment'
+        'name'
     ];
 
     protected $hidden = [];
+
+    public function department()
+    {
+        return $this->hasMany('App\Model\Department');
+    }
 }

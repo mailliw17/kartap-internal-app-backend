@@ -24,8 +24,8 @@ class EventPartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'idEvent' => 'required|string',
-            'idPartner' => 'required|string'
+            'event_id' => 'required|string',
+            'partner_id' => 'required|string'
         ];
     }
 }

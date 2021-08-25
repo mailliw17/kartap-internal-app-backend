@@ -26,7 +26,10 @@ class Career extends Model
         'status'
     ];
 
-
-
     protected $hidden = [];
+
+    public function careermember()
+    {
+        return $this->hasMany('App\Model\CareerMember');
+    }
 }

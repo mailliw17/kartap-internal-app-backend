@@ -12,10 +12,20 @@ class RegisteredEvent extends Model
     protected $table = 'registered_event';
 
     protected $fillable = [
-        'idEvent',
-        'idEventMember',
+        'event_id',
+        'event_member_id',
         'dateRegistered'
     ];
 
     protected $hidden = [];
+
+    public function event()
+    {
+        return $this->belongsTo('App\Model\Event');
+    }
+
+    public function eventmember()
+    {
+        return $this->belongsTo('App\Model\EventMember');
+    }
 }

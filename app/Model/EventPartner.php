@@ -12,9 +12,19 @@ class EventPartner extends Model
     protected $table = 'event_partner';
 
     protected $fillable = [
-        'idEvent',
-        'idPartner'
+        'event_id',
+        'partner_id'
     ];
 
     protected $hidden = [];
+
+    public function partner()
+    {
+        return $this->belongsTo('App\Model\Partner');
+    }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Model\Event');
+    }
 }

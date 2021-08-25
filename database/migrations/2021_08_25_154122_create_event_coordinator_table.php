@@ -14,10 +14,20 @@ class CreateEventCoordinatorTable extends Migration
     public function up()
     {
         Schema::create('event_coordinator', function (Blueprint $table) {
-            $table->integer('idEvent');
-            $table->integer('idUser');
+            $table->bigInteger('event_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('event_id')
+                ->references('id')
+                ->on('event')
+                ->onCascade('delete');
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onCascade('delete');
         });
     }
 

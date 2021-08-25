@@ -20,7 +20,7 @@ class Auth extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'phone', 'email', 'password', 'id_role', 'email_verified_at'
+        'name', 'username', 'phone', 'email', 'password', 'role_id', 'email_verified_at'
     ];
 
     /**
@@ -31,4 +31,14 @@ class Auth extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo('App\Model\Role');
+    }
+
+    public function eventcoordinator()
+    {
+        return $this->hasMany('App\Model\EventCoordinator');
+    }
 }

@@ -24,7 +24,7 @@ class CareerMemberRequest extends FormRequest
     public function rules()
     {
         return [
-            'idCareer' => 'required|integer',
+            'career_id' => 'required|integer',
             'name' => 'required',
             'email' => 'required|email',
             'cv_or_resume' => 'required',

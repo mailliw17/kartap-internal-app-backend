@@ -13,8 +13,14 @@ class Department extends Model
 
     protected $fillable = [
         'id',
-        'name'
+        'name',
+        'division_id'
     ];
 
     protected $hidden = [];
+
+    public function division()
+    {
+        return $this->belongsTo('App\Model\Division');
+    }
 }
