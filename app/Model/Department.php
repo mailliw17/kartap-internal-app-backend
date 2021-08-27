@@ -23,4 +23,9 @@ class Department extends Model
     {
         return $this->belongsTo('App\Model\Division');
     }
+
+    public function detailuser()
+    {
+        return $this->hasOne('App\DetailUser');
+    }
 }

@@ -28,18 +28,18 @@ class Event extends Model
         return $this->hasMany('App\Model\Testimony');
     }
 
-    public function eventpartner()
+    public function eventmember()
     {
-        return $this->hasMany('App\Model\EventPartner');
+        return $this->belongsToMany('App\Model\EventMember');
     }
 
-    public function registeredevent()
+    public function partner()
     {
-        return $this->hasMany('App\Model\RegisteredEvent');
+        return $this->belongsToMany('App\Model\Partner');
     }
 
-    public function eventcoordinator()
+    public function users()
     {
-        return $this->hasMany('App\Model\EventCoordinator');
+        return $this->belongsToMany('App\Model\Auth');
     }
 }

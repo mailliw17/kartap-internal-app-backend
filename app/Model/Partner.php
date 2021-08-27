@@ -22,8 +22,8 @@ class Partner extends Model
 
     protected $hidden = [];
 
-    public function eventpartner()
+    public function event()
     {
-        return $this->hasMany('App\Model\EventPartner');
+        return $this->belongsToMany('App\Model\Event');
     }
 }

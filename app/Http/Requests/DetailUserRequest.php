@@ -24,8 +24,8 @@ class DetailUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'idUser' => 'required|integer',
-            'idDepartment' => 'required|integer',
+            'user_id' => 'required|integer',
+            'department_id' => 'required|integer',
             'name' => 'required',
             'address' => 'required',
             'dateOfBirth' => 'required|date',

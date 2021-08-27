@@ -24,7 +24,7 @@ class TestimonyRequest extends FormRequest
     public function rules()
     {
         return [
-            'idEventMember' => 'required|integer',
+            'event_member_id' => 'required|integer',
             'event_id'  => 'required|integer',
             'testimony' => 'required',
             'feedback' => 'required',

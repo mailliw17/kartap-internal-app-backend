@@ -15,8 +15,8 @@ class CreateDetailUserTable extends Migration
     {
         Schema::create('detail_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idUser');
-            $table->integer('idDepartment');
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('department_id')->unsigned();
             $table->string('name');
             $table->text('address');
             $table->date('dateOfBirth');
@@ -26,6 +26,16 @@ class CreateDetailUserTable extends Migration
             $table->integer('status');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onCascade('delete');
+
+            $table->foreign('department_id')
+                ->references('id')
+                ->on('department')
+                ->onCascade('delete');
         });
     }
 

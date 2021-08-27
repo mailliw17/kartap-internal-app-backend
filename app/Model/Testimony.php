@@ -26,4 +26,9 @@ class Testimony extends Model
     {
         return $this->belongsTo('App\Model\Event');
     }
+
+    public function eventmember()
+    {
+        return $this->belongsTo('App\EventMember');
+    }
 }

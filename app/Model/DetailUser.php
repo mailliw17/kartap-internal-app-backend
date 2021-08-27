@@ -13,8 +13,8 @@ class DetailUser extends Model
 
     protected $fillable = [
         'id',
-        'idUser',
-        'idDepartment',
+        'user_id',
+        'department_id',
         'name',
         'address',
         'dateOfBirth',
@@ -25,4 +25,14 @@ class DetailUser extends Model
     ];
 
     protected $hidden = [];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Auth');
+    }
+
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
 }

@@ -15,7 +15,7 @@ class CreateTestimonyTable extends Migration
     {
         Schema::create('testimony', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idEventMember');
+            $table->bigInteger('event_member_id')->unsigned();
             $table->bigInteger('event_id')->unsigned();
             $table->text('testimony');
             $table->text('feedback');
@@ -26,6 +26,11 @@ class CreateTestimonyTable extends Migration
             $table->foreign('event_id')
                 ->references('id')
                 ->on('event')
+                ->onCascade('delete');
+
+            $table->foreign('event_member_id')
+                ->references('id')
+                ->on('event_member')
                 ->onCascade('delete');
         });
     }

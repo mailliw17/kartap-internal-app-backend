@@ -18,13 +18,13 @@ class EventPartner extends Model
 
     protected $hidden = [];
 
-    public function partner()
-    {
-        return $this->belongsTo('App\Model\Partner');
-    }
+    // public function partner()
+    // {
+    //     return $this->belongsTo('App\Model\Partner');
+    // }
 
-    public function event()
-    {
-        return $this->belongsTo('App\Model\Event');
-    }
+    // public function event()
+    // {
+    //     return $this->belongsTo('App\Model\Event');
+    // }
 }

@@ -37,8 +37,13 @@ class Auth extends Authenticatable
         return $this->belongsTo('App\Model\Role');
     }
 
-    public function eventcoordinator()
+    public function event()
     {
-        return $this->hasMany('App\Model\EventCoordinator');
+        return $this->belongsToMany('App\Model\Event');
+    }
+
+    public function detailuser()
+    {
+        return $this->hasOne('App\DetailUser');
     }
 }

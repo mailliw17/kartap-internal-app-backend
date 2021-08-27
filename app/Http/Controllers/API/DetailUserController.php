@@ -13,8 +13,8 @@ class DetailUserController extends Controller
     {
         // ambil berdasarkan parameter
         $id  = $request->input('id');
-        $idUser  = $request->input('idUser');
-        $idDepartment  = $request->input('idDepartment');
+        $user_id  = $request->input('user_id');
+        $department_id  = $request->input('department_id');
         $name  = $request->input('name');
 
         if ($id) {
@@ -24,15 +24,15 @@ class DetailUserController extends Controller
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
-        } else if ($idUser) {
-            $data = DetailUser::where('idUser', $idUser)->take(10)->get();
+        } else if ($user_id) {
+            $data = DetailUser::where('user_id', $user_id)->take(10)->get();
             if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
                 return ResponseFormatter::error(null, 'Gagal', 404);
             }
-        } else if ($idDepartment) {
-            $data = DetailUser::where('idDepartment', $idDepartment)->take(10)->get();
+        } else if ($department_id) {
+            $data = DetailUser::where('department_id', $department_id)->take(10)->get();
             if ($data) {
                 return ResponseFormatter::success($data, 'Berhasil');
             } else {
@@ -60,8 +60,8 @@ class DetailUserController extends Controller
     public function create(DetailUserRequest $request)
     {
         $data = new DetailUser();
-        $data->idUser = $request->idUser;
-        $data->idDepartment = $request->idDepartment;
+        $data->user_id = $request->user_id;
+        $data->department_id = $request->department_id;
         $data->name = $request->name;
         $data->address = $request->address;
         $data->dateOfBirth = $request->dateOfBirth;
@@ -81,8 +81,8 @@ class DetailUserController extends Controller
 
     public function update(DetailUserRequest $request, $id)
     {
-        $idUser = $request->idUser;
-        $idDepartment = $request->idDepartment;
+        $user_id = $request->user_id;
+        $department_id = $request->department_id;
         $name = $request->name;
         $address = $request->address;
         $dateOfBirth = $request->dateOfBirth;
@@ -95,8 +95,8 @@ class DetailUserController extends Controller
 
         if ($data) {
             // kalau ada data baru eksekusi
-            $data->idUser = $idUser;
-            $data->idDepartment = $idDepartment;
+            $data->user_id = $user_id;
+            $data->department_id = $department_id;
             $data->name = $name;
             $data->address = $address;
             $data->dateOfBirth = $dateOfBirth;

@@ -22,8 +22,13 @@ class EventMember extends Model
 
     protected $hidden = [];
 
-    public function registeredevent()
+    public function event()
     {
-        return $this->hasMany('App\Model\RegisteredEvent');
+        return $this->belongsToMany('App\Model\Event');
+    }
+
+    public function testimony()
+    {
+        return $this->hasOne('App\Testimony');
     }
 }

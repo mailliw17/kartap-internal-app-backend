@@ -18,13 +18,13 @@ class EventCoordinator extends Model
 
     protected $hidden = [];
 
-    public function auth()
-    {
-        return $this->belongsTo('App\Model\Auth');
-    }
+    // public function auth()
+    // {
+    //     return $this->belongsTo('App\Model\Auth');
+    // }
 
-    public function event()
-    {
-        return $this->belongsTo('App\Model\Event');
-    }
+    // public function event()
+    // {
+    //     return $this->belongsTo('App\Model\Event');
+    // }
 }
