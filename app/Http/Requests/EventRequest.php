@@ -24,12 +24,14 @@ class EventRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required', 
             'subTitle' => 'required',
             'description' => 'required',
             'registrationUrl' => 'required',
             'status' => 'required|integer',
             'image' => 'required',
+            'subtitle_first' => 'required',
+            'subtitle_second' => 'required',
         ];
     }
 }

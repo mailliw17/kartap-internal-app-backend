@@ -21,6 +21,8 @@ class CreateEventTable extends Migration
             $table->string('registrationUrl');
             $table->integer('status');
             $table->string('image');
+            $table->string('subtitle_first');
+            $table->string('subtitle_second');
             $table->softDeletes();
             $table->timestamps();
         });

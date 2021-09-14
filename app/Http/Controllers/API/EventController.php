@@ -11,7 +11,7 @@ class EventController extends Controller
 {
     public function index(Request $request)
     {
-        // ambil berdasarkan parameter
+        // ambil berdasarkan parameter 
         $id  = $request->input('id');
         $title  = $request->input('title');
 
@@ -54,6 +54,8 @@ class EventController extends Controller
         $data->registrationUrl = $request->registrationUrl;
         $data->status = $request->status;
         $data->image = $request->image;
+        $data->subtitle_first = $request->subtitle_first;
+        $data->subtitle_second = $request->subtitle_second;
 
         $data->save();
 
@@ -73,6 +75,8 @@ class EventController extends Controller
         $registrationUrl = $request->registrationUrl;
         $status = $request->status;
         $image = $request->image;
+        $subtitle_first = $request->subtitle_first;
+        $subtitle_second = $request->subtitle_second;
 
         $data = Event::find($id);
 
@@ -84,6 +88,8 @@ class EventController extends Controller
             $data->registrationUrl = $registrationUrl;
             $data->status = $status;
             $data->image = $image;
+            $data->subtitle_first = $subtitle_first;
+            $data->subtitle_second = $subtitle_second;
 
             $data->save();
 

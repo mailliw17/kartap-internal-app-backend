@@ -19,6 +19,8 @@ class Event extends Model
         'registrationUrl',
         'status',
         'image',
+        'subtitle_first',
+        'subtitle_second'
     ];
 
     protected $hidden = [];
