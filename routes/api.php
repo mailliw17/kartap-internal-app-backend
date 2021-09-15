@@ -33,6 +33,8 @@ Route::get('role', 'API\RoleController@index');
 Route::get('event-coordinator', 'API\EventCoordinatorController@index');
 Route::get('event-partner', 'API\EventPartnerController@index');
 Route::get('registered-event', 'API\RegisteredEventController@index');
+Route::get('peserta-sgs', 'API\PesertaSgsController@index');
+Route::get('sgs-registered', 'API\SgsRegisteredController@index');
 
 Route::post('career', 'API\CareerController@create');
 Route::post('about-us', 'API\AboutUsController@create');
@@ -50,6 +52,8 @@ Route::post('role', 'API\RoleController@create');
 Route::post('event-coordinator', 'API\EventCoordinatorController@create');
 Route::post('event-partner', 'API\EventPartnerController@create');
 Route::post('registered-event', 'API\RegisteredEventController@create');
+Route::post('peserta-sgs', 'API\PesertaSgsController@create');
+Route::post('sgs-registered', 'API\SgsRegisteredController@create');
 
 Route::put('/about-us/{id}', 'API\AboutUsController@update');
 Route::put('/career/{id}', 'API\CareerController@update');
@@ -62,6 +66,8 @@ Route::put('/detail-user/{id}', 'API\DetailUserController@update');
 Route::put('/department/{id}', 'API\DepartmentController@update');
 Route::put('/division/{id}', 'API\DivisionController@update');
 Route::put('/role/{id}', 'API\RoleController@update');
+Route::put('peserta-sgs/{id}', 'API\PesertaSgsController@update');
+Route::put('sgs-registered', 'API\SgsRegisteredController@update');
 
 Route::delete('/about-us/{id}', 'API\AboutUsController@delete');
 Route::delete('/career/{id}', 'API\CareerController@delete');
@@ -75,3 +81,5 @@ Route::delete('/detail-user/{id}', 'API\DetailUserController@delete');
 Route::delete('/department/{id}', 'API\DepartmentController@delete');
 Route::delete('/division/{id}', 'API\DivisionController@delete');
 Route::delete('/role/{id}', 'API\RoleController@delete');
+Route::delete('peserta-sgs/{id}', 'API\PesertaSgsController@delete');
+Route::delete('sgs-registered', 'API\SgsRegisteredController@delete');
